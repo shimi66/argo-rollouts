@@ -7,14 +7,7 @@ spec:
   strategy:
     canary:
       steps:
-      - setWeight: 20
-      - pause: {}
-      - setWeight: 40
-      - pause: {duration: 10}
-      - setWeight: 60
-      - pause: {duration: 10}
-      - setWeight: 80
-      - pause: {duration: 10}
+      - setWeight: 25
   revisionHistoryLimit: 2
   selector:
     matchLabels:
