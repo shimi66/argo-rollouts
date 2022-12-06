@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: rollouts-demo2
+spec:
+  replicas: 5
+  strategy:
+    canary:
+      steps:
+      - setWeight: 75
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: rollouts-demo2
+  template:
+    metadata:
+      labels:
+        app: rollouts-demo2
+    spec:
+      containers:
+      - name: rollouts-demo2
+        image: argoproj/rollouts-demo:yellow
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        resources:
+          requests:
+            memory: 32Mi
+            cpu: 5m
