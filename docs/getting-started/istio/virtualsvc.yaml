@@ -12,7 +12,7 @@ spec:
     route:
     - destination:
         host: rollouts-demo-stable
-      weight: 100
+      weight: 75
     - destination:
         host: rollouts-demo-canary
-      weight: 0
+      weight: 25
